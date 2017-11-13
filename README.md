@@ -1,2 +1,9 @@
-# blog_shenwl
-learning log
+# BLog
+Learning Log
+ 
+- JavaScript
+
+- CSS/HTML
+
+- Python/Flask
+
