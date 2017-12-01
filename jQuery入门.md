@@ -1,3 +1,4 @@
+# PART 1
 ### 1. jQuery 能做什么？
 - 几乎所有原生JS能做的  
     - 选择网页元素
@@ -79,3 +80,126 @@ $('#clickme').click(function() {
 - .val([value]),读写两用，没有参数就获取表单用户输入或者选择的内容，有参数则设置。
 - .attr(attributeName)获取元素特定属性的值
 - .attr(attributeName, value)/.attr(attributesJson)/.attr(attributeName, function(index, attr){})设置元素特定属性的值
+
+# PART 2
+## 1. $(document).ready()
+- DOM准备就绪
+- .ready( handler )，当DOM准备就绪时，指定一个函数来执行。
+## 2. $node.html()和$node.text()的区别
+- $node.html()方法获取(修改)节点的html元素。
+- $node.text()方法获取(修改)节点的文本元素。
+## 3. $.extend 的作用和用法? 
+- 作用：扩展一个对象。
+- 用法：
+```
+$.extend({}, obj1, obj2) //把obj1和obj2扩展到空数组“{}”，没有的项目添加，有的覆盖（后面的覆盖前面的）
+```
+## 4. jQuery 的链式调用
+- 当jQuery的方法的返回值仍然为当前对象的时候，可以继续调用该对象的方法，就叫做链式调用。
+```
+//例子
+$node.parents().find().css()
+```
+## 5. jQuery 中 data 函数的作用
+- .data(key,value)函数可以在匹配的jQuery对象上储存任意相关数据，或返回匹配的元素集合中的第一个元素的给定名称的数据存储的值。
+```
+//添加数据
+.data(key, value)/ .data(obj)
+//返回数据
+.data(key)/.data()
+```
+- 通过data()函数存取的数据都是临时数据，页面刷新，之前存放的数据将不复存在。
+- 使用removeData()移除通过data()存放的数据。
+## 6. 直观列举一些 jQuery 方法：
+- 给元素 $node 添加 class active，给元素 $noed 删除 class active
+```
+$node.addClass('active)
+$node.removeClass('active)
+```
+- 展示元素$node, 隐藏元素$node
+```
+$node.show()
+$node.hide()
+```
+- 获取元素$node 的 属性: id、src、title， 修改以上属性
+```
+//传入修改值则修改，不传入则获取
+$node.attr(id[,修改值])
+$node.attr(src[,修改值])
+$node.attr(title[,修改值])
+```
+- 给$node 添加自定义属性data-src
+```
+$node.attr(data-src, value)
+```
+- 在$ct 内部最开头添加元素$node
+```
+$ct.preppend($node)
+```
+- 在$ct 内部最末尾添加元素$node
+```
+$ct.append($node)
+```
+- 删除$node
+```
+$node.remove()
+```
+- 把$ct里内容清空
+```
+$ct.empty()
+```
+- 在$ct 里设置 html <div class="btn"></div>
+```
+$ct.html('<div class="btn"></div>')
+```
+- 获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)
+```
+//不包括padding
+$node.width([value])
+$node.height([value])
+//包括padding,不包括border
+$node.innerWidth([value])
+$node.innerHeight([value])
+//包括border,不包括margin
+$node.outerWidth([value])
+$node.outerHeight([value])
+//包括margin
+$node.outerWidth([value,]true)
+$node.outerHeight([value,]true)
+```
+- 获取窗口滚动条垂直滚动距离
+```
+$(window).scrollTop()
+```
+- 获取$node 到根节点水平、垂直偏移距离
+```
+$node.offset()
+```
+- 修改$node 的样式，字体颜色设置红色，字体大小设置14px
+```
+$node.css({"color": "red", "font-size": "14px"})
+```
+- 遍历节点，把每个节点里面的文本内容重复一遍
+```
+$node.each()
+```
+- 从$ct 里查找 class 为 .item的子元素
+```
+$ct.find('.item')
+```
+- 获取$ct 里面的所有孩子
+```
+$ct.children()
+```
+- 对于$node，向上找到 class 为'.ct'的父亲，在从该父亲找到'.panel'的孩子
+```
+$node.parents('.ct).find('.panel')
+```
+- 获取选择元素的数量
+```
+$('li').size()
+```
+- 获取当前元素在兄弟中的排行
+```
+$node.index()
+```
