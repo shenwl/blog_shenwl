@@ -111,7 +111,7 @@ $node.parents().find().css()
 - 通过data()函数存取的数据都是临时数据，页面刷新，之前存放的数据将不复存在。
 - 使用removeData()移除通过data()存放的数据。
 ## 6. 直观列举一些 jQuery 方法：
-- 给元素 $node 添加 class active，给元素 $noed 删除 class active
+- 给元素 $node 添加 class active，给元素 $node 删除 class active
 ```
 $node.addClass('active)
 $node.removeClass('active)
