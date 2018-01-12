@@ -29,6 +29,23 @@ export function createStore(reducer, middleWare) {
     }
 }
 
+export applyMiddleWare(middleWare) {
+    return createStore => (...args) => {
+        const store = createStore(...args)
+        const dispatch = store.dispatch
+
+        const midApi = {
+            getState: store.getState,
+            dispatch: (...args) => dispatch(...args)
+        }
+        dispatch = middleWare(midApi)(store.dispatch)
+        return {
+            ...store,
+            dispatch
+        }
+    }
+}
+
 function bindActionCreateor(creator, dispatch) {
     return (...args) => dispatch(creator(...args))
 }
