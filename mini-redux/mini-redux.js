@@ -1,7 +1,10 @@
 // 精简版redux，用于理解redux及其主要api
 // 还需理解react-redux, 中间件
 
-export function createStore(reducer) {
+export function createStore(reducer, middleWare) {
+    if(middleWare) {
+        return middleWare(createStore)(reducer)
+    }
     let currentState = {}
     let currentListeners = {}
 
